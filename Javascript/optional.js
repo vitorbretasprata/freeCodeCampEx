@@ -1,29 +1,30 @@
-function addTogether() {
-    
-    if(validateNum(...arguments)) {
+function addTogether() {    
+
+    if(!validateNum(...arguments)){
         return undefined;
     }
 
-    if(arguments.length != 2) {
+    if(arguments.length == 2){
+        return arguments[0] + arguments[1];
+    } else {
         let x = arguments[0];
-        return function(y){
-
+        return function (y) {
+            if(!validateNum(y)){
+                return undefined;
+            }
             return x + y;
         }
     }
-
-    return arguments[0] + arguments[1];
+    
 }
 
 function validateNum(){
     for(let i = 0; i < arguments.length; i++) {
-        if(arguments[i] !== parseInt(arguments[i], 10)) {
+        if(typeof arguments[i] !== 'number') {
             return false;
         }
     }    
     return true;
 }
 
-
-  
-console.log(addTogether('dad')(3));
+console.log(addTogether("http://bit.ly/IqT6zt"));
