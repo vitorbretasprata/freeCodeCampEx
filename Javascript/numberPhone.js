@@ -1,6 +1,6 @@
 function telephoneCheck(str) {
-    let regex = /(1{1} )|(\(*5{3}\)*)|(5{4})/g
-    return str.match(regex);
+    let regex = /^(1\s*)?(\(\d{3}\)|\d{3})[\s\-]?\d{3}[\s\-]?\d{4}$/g
+    return regex.test(str);
 }
   
-console.log(telephoneCheck("1 555 555-5555"));
+console.log(telephoneCheck("2(757)6227382"));
